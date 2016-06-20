@@ -1,0 +1,36 @@
+---
+title: "RepData_PeerAssignment1"
+author: "John Graham"
+date: "June 19, 2016"
+output: html_document
+---
+
+This is the first course project for the Reproducible Data Class of the Data Science track at Coursera. 
+
+In this project, we process and summarize the results of a file containing data from a personal activity monitoring device, taken in 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.
+
+To begin, we unzip and read the file into our activityData variable:
+
+```{r Unzip echo=TRUE}
+    unzip("activity.zip", exdir = "./data")
+    activityData <- read.csv("./data/activity.csv")
+```
+
+# Total, mean and median
+
+Now, we calculate the total, mean and median number of steps taken and build a histogram of the steps data.
+
+```{r Median echo=TRUE}
+    stepsTotal <- sum(activityData$steps)
+    stepsMean <- mean(activityData$steps, na.rm = TRUE)
+    stepsMedian <- median(activityData$steps, na.rm = TRUE)
+    hist(activityData$steps)
+```
+
+The total # of steps taken during the period was: `r stepsTotal`  
+The mean # of steps taken per interval was: `r stepsMean`  
+The median # of steps taken per interval was: `r stepsMedian`
+
+
+
+
